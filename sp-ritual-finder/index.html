@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Find Your Ritual | SP Aesthetics (Demo)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* Colours sampled from sp-aesthetics-and-skin-clinic.co.uk (10 Oct 2026). Set from BRAND in the script. */
+:root{
+  --black:#0D0D0C; --gold:#806831; --brown:#714C39; --cream:#F1EDE4; --paper:#FDFBF3; --line:#D9D0C4; --muted:#5F5850; --ink:#151413;
+  --display:"Cormorant Garamond",Georgia,serif; --body:"Jost",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--cream);color:var(--ink);font:16px/1.6 var(--body)}
+.top{background:var(--black);color:#fff;padding:16px}
+.top .in{max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo b{display:block;font:500 1.45rem/1 var(--display);letter-spacing:.01em}
+.logo small{display:block;font:500 .58rem/1.4 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.btn-book{background:var(--gold);color:#fff;text-decoration:none;font:500 .74rem var(--body);letter-spacing:.14em;text-transform:uppercase;padding:11px 18px;border-radius:999px;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+.ribbon{background:#2A2622;color:#F1EDE4;text-align:center;font:500 .72rem/1.4 var(--body);padding:7px 12px;letter-spacing:.03em}
+.wrap{max-width:680px;margin:0 auto;padding:28px 16px 56px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);border-radius:999px;padding:6px 14px;font:500 .68rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--brown);background:var(--paper)}
+.pill::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
+h1{font:500 clamp(2.4rem,9vw,3.4rem)/1.02 var(--display);margin:16px 0 10px}
+h1 em,h2 em{color:var(--brown);font-style:italic}
+.lead{color:var(--muted);margin:0 0 22px;max-width:52ch}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:22px 18px}
+.prog{display:flex;gap:6px;margin-bottom:18px}
+.prog i{flex:1;height:3px;border-radius:3px;background:var(--line);transition:background .3s}
+.prog i.on{background:var(--gold)}
+.qn{font:500 .7rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 4px}
+h2{font:500 1.9rem/1.1 var(--display);margin:0 0 6px}
+.hint{color:var(--muted);font-size:.92rem;margin:0 0 16px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;width:100%;min-height:56px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font:500 1rem var(--body);cursor:pointer;transition:border-color .15s,background .15s}
+.opt small{font:400 .85rem var(--body);color:var(--muted)}
+.opt:hover{border-color:var(--gold)}
+.opt[aria-pressed="true"]{background:var(--black);border-color:var(--black);color:#fff}
+.opt[aria-pressed="true"] small{color:#D8D0C2}
+.opt:focus-visible,.btn:focus-visible,.btn-book:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px}
+.btn{font:500 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:12px 20px;min-height:46px;cursor:pointer;border:1px solid var(--black);background:transparent;color:var(--black);text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.btn.solid{background:var(--black);color:#fff}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn:disabled{opacity:.35;cursor:default}
+.res h2{font-size:2.2rem}
+.routine{display:grid;gap:14px;margin:18px 0}
+@media (min-width:620px){.routine{grid-template-columns:1fr 1fr}}
+.rt{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+.rt h3{font:500 1.35rem var(--display);margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.rt ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.rt li{counter-increment:s;display:grid;grid-template-columns:26px 1fr;gap:8px;padding:8px 0;border-top:1px solid #EEE7DC}
+.rt li:first-child{border-top:0}
+.rt li::before{content:counter(s);width:24px;height:24px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font:600 .75rem/22px var(--body);text-align:center}
+.rt li b{display:block;font-weight:500}
+.rt li span{display:block;font-size:.85rem;color:var(--muted)}
+.feature{display:grid;gap:4px;border-radius:18px;padding:18px;margin-top:14px}
+.feature.box{background:var(--black);color:#fff}
+.feature.box p{color:#D8D0C2}
+.feature.facial{background:#fff;border:1px solid var(--gold)}
+.feature .k{font:500 .68rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.feature h3{font:500 1.6rem/1.1 var(--display);margin:2px 0}
+.feature p{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.price{font:600 .95rem var(--body)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.soon{font:500 .72rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:6px 12px}
+.notes{margin:16px 0 0;padding:14px 16px;border-left:3px solid var(--gold);background:#fff;border-radius:0 14px 14px 0;font-size:.9rem;color:var(--muted)}
+.notes p{margin:4px 0}
+.why{font-size:.88rem;color:var(--muted);margin:14px 0 0}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.copied{font-size:.85rem;color:var(--brown);align-self:center}
+textarea.fallback{width:100%;min-height:120px;margin-top:10px;font:400 .85rem var(--body)}
+.small{font-size:.78rem;color:var(--muted);margin-top:18px}
+.powered{font-size:.72rem;color:var(--muted);text-align:center;margin-top:22px}
+.embedded .wrap{padding-bottom:24px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ribbon" id="ribbon">Demo made for SP Aesthetics by Amy Conlon · not a live page</div>
+<header class="top"><div class="in">
+  <div class="logo"><b id="bName">SP Aesthetics</b><small id="bSub">Skin Clinic &amp; Training Academy</small></div>
+  <a class="btn-book" id="topBook" href="#" target="_blank" rel="noopener">Book now</a>
+</div></header>
+
+<main class="wrap">
+  <span class="pill">SP.HQ Rituals</span>
+  <h1>Find your <em>ritual</em></h1>
+  <p class="lead">Six quick questions and we'll suggest a morning and evening SP.HQ routine for your skin, plus the in-clinic facial that suits it.</p>
+  <section class="card" id="app" aria-live="polite"></section>
+  <p class="powered" id="powered">Powered by Coinrise</p>
+</main>
+
+<script>
+/* ============ BRAND & RITUAL SETTINGS: each business edits these ============ */
+const BRAND = {
+  name: "SP Aesthetics", sub: "Skin Clinic & Training Academy",
+  demo: true,
+  black: "#0D0D0C", gold: "#806831", brown: "#714C39", cream: "#F1EDE4", paper: "#FDFBF3",
+  bookingUrl: "https://spaestheticsskinclinictrainingacademy.booksy.com/a/",
+  shopUrl: "",                 // leave empty until the Shopify store is live: shows "Shop launching soon"
+  consultText: "Not sure, or looking for something more advanced? Book a consultation and we'll talk it through.",
+  smallprint: "Suggestions are a general guide based on your answers, not a skin diagnosis. If you have a skin condition, are pregnant or have a reaction, please book a consultation before starting new products."
+};
+// Product names from the SP.HQ Rituals packaging. Descriptions are PLACEHOLDERS: replace with the brand's own approved wording.
+const PRODUCTS = {
+  cleanser:  {name: "SP.HQ Rituals Cleanser",                 use: "Removes make-up, SPF and the day. Start here, morning and night."},
+  toner:     {name: "SP.HQ Rituals Hydrating Toner",          use: "Preps skin after cleansing, ready for the next step."},
+  gel:       {name: "SP.HQ Rituals Double Hydration Boost Gel", use: "A lightweight hydration step."},
+  serum:     {name: "SP.HQ Rituals Collagen Boost Serum",     use: "A serum step for firmness-focused routines."},
+  moist:     {name: "SP.HQ Rituals Moisturising Day Cream",   use: "Everyday moisture to lock it all in."},
+  antiage:   {name: "SP.HQ Rituals Anti-Age Day Cream",       use: "A day cream for fine-line-focused routines."},
+  spf:       {name: "SP.HQ Rituals Mineral SPF30",            use: "Always the last step in the morning."}
+};
+const BOXES = {                // collection boxes (price: 0 hides the price)
+  hydration: {name: "Hydration Discovery Box", desc: "A curated set for skin that wants comfort and moisture.", price: 0},
+  glow:      {name: "Everyday Glow Box",       desc: "A curated set for an easy everyday glow routine.",       price: 0}
+};
+const FACIALS = {              // in-clinic facials and prices from the clinic's Booksy page (10 Oct 2026)
+  hydrate:  {name: "Hydration Discovery Ritual Facial", price: "£70", time: "1 hr 30 min"},
+  workout:  {name: "SP.HQ Hydrate + Tone Skin Workout", price: "£80", time: "1 hour"},
+  glow:     {name: "Everyday Glow Ritual",  price: "£75", time: "1 hour"},
+  detox:    {name: "Detox Ritual",          price: "£75", time: "1 hr 15 min"},
+  age:      {name: "Age Defying Ritual",    price: "£70", time: "1 hour"},
+  power:    {name: "Power Facial",          price: "£70", time: "1 hour"},
+  hydra:    {name: "Hydra Facial",          price: "£50", time: "1 hour"},
+  million:  {name: "Million Dollar Facial", price: "£90", time: "1 hour"}
+};
+const RULES = {
+  // goal -> treatment step, day cream, box and facial
+  goals: {
+    hydrate: {label: "Hydration & comfort",   treat: "gel",   cream: "moist",   box: "hydration", facial: "hydrate"},
+    glow:    {label: "Glow & radiance",       treat: "gel",   cream: "moist",   box: "glow",      facial: "glow"},
+    lines:   {label: "Fine lines & firmness", treat: "serum", cream: "antiage", box: "glow",      facial: "age"},
+    clear:   {label: "Breakouts & congestion",treat: "gel",   cream: "moist",   box: "glow",      facial: "detox"},
+    protect: {label: "Protect & maintain",    treat: "gel",   cream: "moist",   box: "glow",      facial: "power"}
+  },
+  dryTypesGetHydrationBox: true,   // dry skin always gets the hydration box
+  specialFacial: "million",        // shown when they want a proper treat
+  quickFacial: "hydra"             // shown when they want a quick refresh
+};
+/* ========================================================================== */
+
+const QUESTIONS = [
+  {id:"type", q:"What's your skin type?", hint:"Go with how it feels by midday.", opts:[
+    ["dry","Dry","Feels tight or flaky"],["oily","Oily","Shiny all over by lunchtime"],["combo","Combination","Shiny T-zone, normal or dry elsewhere"],
+    ["normal","Normal","Comfortable most of the time"],["unsure","Not sure","We'll keep it gentle"]]},
+  {id:"sens", q:"Does your skin react easily?", hint:"Redness, stinging or itching with new products.", opts:[
+    ["yes","Yes, often"],["some","Sometimes"],["no","Rarely or never"]]},
+  {id:"goal", q:"What would you most like to focus on?", hint:"Pick the one that matters most right now.", opts:
+    Object.entries(RULES.goals).map(([k,g]) => [k, g.label])},
+  {id:"now", q:"What's your routine like now?", opts:[
+    ["none","Nothing much yet"],["basic","Cleanser and moisturiser"],["full","I've got a full routine"]]},
+  {id:"time", q:"How much time do you want to spend?", opts:[
+    ["quick","Quick","About 2 minutes"],["some","A few minutes","Happy with 4 or 5 steps"],["love","I love a routine","Give me the full ritual"]]},
+  {id:"facial", q:"Fancy an in-clinic facial too?", opts:[
+    ["treat","Yes, treat me","Something special"],["match","Yes, whatever suits my skin"],["quick","Yes, a quick refresh"],["no","Not right now"]]}
+];
+
+const $ = id => document.getElementById(id);
+const r = document.documentElement.style;
+r.setProperty("--black", BRAND.black); r.setProperty("--gold", BRAND.gold); r.setProperty("--brown", BRAND.brown);
+r.setProperty("--cream", BRAND.cream); r.setProperty("--paper", BRAND.paper);
+$("bName").textContent = BRAND.name; $("bSub").textContent = BRAND.sub; $("topBook").href = BRAND.bookingUrl;
+$("ribbon").hidden = !BRAND.demo;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let step = 0; const ans = {};
+const autoMs = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 220;
+
+function render(focus){
+  if (step >= QUESTIONS.length) return renderResult(focus);
+  const Q = QUESTIONS[step];
+  $("app").innerHTML = `
+    <div class="prog" aria-hidden="true">${QUESTIONS.map((_, i) => `<i class="${i <= step ? "on" : ""}"></i>`).join("")}</div>
+    <p class="qn">Question ${step + 1} of ${QUESTIONS.length}</p>
+    <h2 id="qh" tabindex="-1">${esc(Q.q)}</h2>${Q.hint ? `<p class="hint">${esc(Q.hint)}</p>` : `<p class="hint"></p>`}
+    <div class="opts" role="group" aria-labelledby="qh">${Q.opts.map(([v, l, s]) =>
+      `<button type="button" class="opt" data-v="${v}" aria-pressed="${ans[Q.id] === v}">${esc(l)}${s ? `<small>${esc(s)}</small>` : ""}</button>`).join("")}</div>
+    <div class="nav"><button type="button" class="btn" id="back" ${step === 0 ? "disabled" : ""}>Back</button>
+      <button type="button" class="btn solid" id="next" ${ans[Q.id] ? "" : "disabled"}>${step === QUESTIONS.length - 1 ? "See my ritual" : "Next"}</button></div>`;
+  $("app").querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    ans[Q.id] = b.dataset.v; render();
+    setTimeout(() => { step++; render(true); }, autoMs);
+  });
+  $("back").onclick = () => { step = Math.max(0, step - 1); render(true); };
+  $("next").onclick = () => { step++; render(true); };
+  if (focus) $("qh").focus({preventScroll: false});
+}
+
+function buildRitual(a){
+  const g = RULES.goals[a.goal];
+  const am = ["cleanser", "toner", g.treat, g.cream, "spf"];
+  let pm = ["cleanser", "toner", g.treat === "serum" ? "serum" : "gel", "moist"];
+  if (a.time === "quick"){ am.splice(am.indexOf("toner"), 1); am.splice(am.indexOf(g.treat), 1); pm = ["cleanser", g.treat === "serum" ? "serum" : "gel"]; }
+  if (a.time === "love" && g.treat === "gel" && (a.goal === "glow" || a.goal === "protect")) pm.splice(3, 0, "serum");
+  const boxKey = (RULES.dryTypesGetHydrationBox && a.type === "dry") || a.sens === "yes" ? "hydration" : g.box;
+  const facialKey = a.facial === "treat" ? RULES.specialFacial : a.facial === "quick" ? RULES.quickFacial : a.facial === "match" ? g.facial : null;
+  const notes = [];
+  if (a.sens !== "no") notes.push("Introduce one new product at a time, and patch test first.");
+  if (a.sens === "yes") notes.push("As your skin reacts easily, we'd suggest a consultation before starting a new routine.");
+  if (a.now === "none") notes.push("Starting from scratch? Build up gradually: cleanser and SPF first, then add a step each week.");
+  if (a.goal === "clear") notes.push("For ongoing breakouts, a consultation helps us see what's going on.");
+  return {g, am:[...new Set(am)], pm:[...new Set(pm)], box: BOXES[boxKey], facial: facialKey ? FACIALS[facialKey] : null, notes};
+}
+
+function list(keys){ return keys.map(k => `<li><div><b>${esc(PRODUCTS[k].name)}</b><span>${esc(PRODUCTS[k].use)}</span></div></li>`).join(""); }
+
+function renderResult(focus){
+  const R = buildRitual(ans);
+  const label = id => { const Q = QUESTIONS.find(q => q.id === id); const o = Q.opts.find(o => o[0] === ans[id]); return o ? o[1] : ""; };
+  const shop = BRAND.shopUrl ? `<a class="btn gold" href="${esc(BRAND.shopUrl)}" target="_blank" rel="noopener">Shop the box</a>` : `<span class="soon">Shop launching soon</span>`;
+  $("app").innerHTML = `<div class="res">
+    <div class="prog" aria-hidden="true">${QUESTIONS.map(() => `<i class="on"></i>`).join("")}</div>
+    <p class="qn">Your SP.HQ ritual</p>
+    <h2 id="qh" tabindex="-1">A ritual for <em>${esc(R.g.label.toLowerCase())}</em></h2>
+    <div class="routine">
+      <div class="rt"><h3>☀︎ Morning</h3><ol>${list(R.am)}</ol></div>
+      <div class="rt"><h3>☾ Evening</h3><ol>${list(R.pm)}</ol></div>
+    </div>
+    <div class="feature box"><span class="k">Your box</span><h3>${esc(R.box.name)}</h3><p>${esc(R.box.desc)}</p>
+      <div class="row">${R.box.price ? `<span class="price">£${R.box.price}</span>` : ""}${shop}</div></div>
+    ${R.facial ? `<div class="feature facial"><span class="k">In clinic</span><h3>${esc(R.facial.name)}</h3><p>${esc(R.facial.time)} · <span class="price">${esc(R.facial.price)}</span></p>
+      <div class="row"><a class="btn solid" href="${esc(BRAND.bookingUrl)}" target="_blank" rel="noopener">Book this facial</a></div></div>` : ""}
+    ${R.notes.length ? `<div class="notes"><b>Good to know</b>${R.notes.map(n => `<p>${esc(n)}</p>`).join("")}</div>` : ""}
+    <p class="why">Based on: ${esc(label("type"))} skin · ${esc(label("sens")).toLowerCase()} reacts · ${esc(label("time")).toLowerCase()} routine.</p>
+    <p class="why">${esc(BRAND.consultText)}</p>
+    <div class="actions">
+      <a class="btn gold" href="${esc(BRAND.bookingUrl)}" target="_blank" rel="noopener">Book a consultation</a>
+      <button type="button" class="btn" id="copy">Copy my ritual</button>
+      <button type="button" class="btn" id="restart">Start again</button>
+      <span class="copied" id="copied" role="status"></span>
+    </div>
+    <textarea class="fallback" id="fb" readonly hidden aria-label="Your ritual to copy"></textarea>
+    <p class="small">${esc(BRAND.smallprint)}</p></div>`;
+  const text = `My SP.HQ ritual (${R.g.label})\n\nMorning:\n${R.am.map((k, i) => `${i + 1}. ${PRODUCTS[k].name}`).join("\n")}\n\nEvening:\n${R.pm.map((k, i) => `${i + 1}. ${PRODUCTS[k].name}`).join("\n")}\n\nBox: ${R.box.name}` +
+    (R.facial ? `\nFacial: ${R.facial.name} (${R.facial.price})` : "") + `\n\nMy answers: ${QUESTIONS.map(q => `${q.q} ${label(q.id)}`).join(" | ")}`;
+  $("copy").onclick = async () => {
+    try { await navigator.clipboard.writeText(text); $("copied").textContent = "Copied"; }
+    catch { const t = $("fb"); t.value = text; t.hidden = false; t.select(); try { document.execCommand("copy"); $("copied").textContent = "Copied"; } catch { $("copied").textContent = "Select and copy below"; } }
+    setTimeout(() => $("copied").textContent = "", 2500);
+  };
+  $("restart").onclick = () => { step = 0; for (const k in ans) delete ans[k]; render(true); };
+  if (focus) $("qh").focus();
+}
+render();
+</script>
+<script>
+(function(){
+  var embedded = false; try { embedded = window.self !== window.top; } catch (e) { embedded = true; }
+  if (!embedded) return;
+  document.documentElement.classList.add("embedded");
+  document.documentElement.style.minHeight = "0"; document.body.style.minHeight = "0";
+  var last = 0;
+  function send(){ var b = document.body, cs = getComputedStyle(b), lc = b.lastElementChild, mb = lc ? parseFloat(getComputedStyle(lc).marginBottom) || 0 : 0;
+    var h = Math.ceil(b.getBoundingClientRect().height + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom) + mb);
+    if (Math.abs(h - last) < 2) return; last = h;
+    parent.postMessage({type: "tool-height", height: h}, "*"); }
+  window.addEventListener("load", send);
+  if (window.ResizeObserver) new ResizeObserver(send).observe(document.body); else setInterval(send, 500);
+  send();
+})();
+</script>
+</body>
+</html>
